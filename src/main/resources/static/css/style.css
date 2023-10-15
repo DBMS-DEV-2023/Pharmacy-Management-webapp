@@ -1,0 +1,73 @@
+
+/* navigation bar */
+
+#navbar{
+    display: flex;
+    align-items: center;
+
+}
+/*navigation bar: logo and image */
+#logo{
+    
+    margin: 11px 11px;
+}
+#logo img{
+    height: 93px;
+    margin: 6px 20px;
+}
+/*navigation bar: list styling */
+#navbar{
+    position: relative;
+}
+#navbar::before{
+    content: "";
+    background-color:black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+#navbar ul{
+    display: flex;
+}
+
+
+#navbar ul li{
+    color: black;
+    list-style: none;
+    font-size: 1.3rem;
+}
+#navbar ul li a{
+    color: black;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+#navbar ul li a:hover{
+    color: white;
+    background-color: #10847e;
+}
+/* home pic section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+}
+#home::before{
+    content: "";
+    background: url('../images/anunay-rai-NQ55jrGwuXM-unsplash.jpg') no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+
+.container.marketing {
+    padding: 50px; /* Adjust the value to increase the padding as desired */
+}
