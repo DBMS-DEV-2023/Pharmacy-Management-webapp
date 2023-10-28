@@ -12,39 +12,17 @@
     <title>Home</title>
 </head>
 <body>
-   <!-- <nav class="navbar navbar-expand-md navbar-light fixed-top">
-      <div class="container-fluid" >
-        <a class="navbar-brand" href="#" style="color: white;">Carousel</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse" >
-          <ul class="navbar-nav me-auto mb-2 mb-md-0" >
-            <li class="nav-item" >
-              <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Order Medicines</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-
+   
   <nav id="navbar">
     <div id="logo">
         <img th:src="@{images/patient.png}" alt="oopsie caffiene">        
     </div>
     <ul>
       <li class="item"><a href="#">Home</a></li>
-      <li class="item"><a href="#">Order Medicines</a></li>
   </ul>
   <ul class="right">
-      <li class="item"><a href="#">Cart</a></li>
       <li class="item"><a th:href="@{login}">Login</a></li>
+      <li class="item"><a th:href="@{register}">Register</a></li>
       <li class="item"><a th:href="@{~/logout}">Logout</a></li>
 
   </ul>
@@ -64,7 +42,7 @@
   <div class="container marketing ">
 
     <!-- Three columns of text below the carousel -->
-    <div class="row ">
+    <div class="row">
       <div class="col-lg-4 text-center">
         <img class="rounded-circle" src="https://source.unsplash.com/random/140x140/?pills" alt="Generic placeholder image" width="140" height="140">
         <h2 style="text-align: center;">Heading</h2>

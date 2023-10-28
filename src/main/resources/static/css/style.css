@@ -68,7 +68,7 @@ ul.right {
 }
 #home::before{
     content: "";
-    background: url('../images/anunay-rai-NQ55jrGwuXM-unsplash.jpg') no-repeat center center/cover;
+    background: url('../images/homeImage.jpg') no-repeat center center/cover;
     position: absolute;
     height: 80%;
     width: 100%;
@@ -90,4 +90,60 @@ ul.right {
 
 #carouselExampleControls{
     margin-top: 15px;
+}
+
+.card-img-top{
+    padding-top: 0%;
+    width: 100px;
+    height: 150px;
+}
+
+/* admin order history */
+/* .cell-1 {
+    border-collapse: separate;
+    border-spacing: 0 4em;
+    background:  #eee;
+    border-bottom: 5px solid transparent;
+    background-clip: padding-box;
+  }
+
+  thead {
+    background: #dddcdc;
+  } */
+
+  /* admin dashboard */
+  .intro {
+    height: 100%;
+  }
+  
+  table td,
+  table th {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  thead th {
+    color: #fff;
+  }
+  
+  .card {
+    border-radius: .5rem;
+  }
+  
+  .table-scroll {
+    border-radius: .5rem;
+  }
+  
+  .table-scroll table thead th {
+    font-size: 1.25rem;
+  }
+  thead {
+    top: 0;
+    position: sticky;
+  }
+
+  .table thead th {
+    background-color:#8bccb3;
+    color: white;
 }
