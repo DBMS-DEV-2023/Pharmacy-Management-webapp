@@ -1,5 +1,8 @@
 package com.pharmacy.pharmacymanagementsystem.controller;
 
+import java.util.Map;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,7 +42,9 @@ public class AuthenticationController extends Helper {
             addDefaultAttributes(model, session);
             System.out.println(model.getAttribute("userRole"));
             if(model.getAttribute("userRole").equals("customer")){
-                return "redirect:dashboard";
+                String x="redirect:dashboardu/" +authenticationService.getCurrentUser(session);
+                System.out.println(x);
+                return x;
             }
             else{
                 return "redirect:admindashboard";
@@ -57,7 +62,9 @@ public class AuthenticationController extends Helper {
                 System.out.println(model.getAttribute("userRole"));
                 messageService.redirectWithSuccess(redirectAttributes,"Successfully logged in");
                 if(model.getAttribute("userRole").equals("customer")){
-                    return "redirect:dashboard";
+                    String x="redirect:dashboardu/" +authenticationService.getCurrentUser(session);
+                    System.out.println(x);
+                    return x;
                 }
                 else{
                     return "redirect:admindashboard";

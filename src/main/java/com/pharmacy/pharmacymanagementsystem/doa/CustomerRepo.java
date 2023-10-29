@@ -1,7 +1,9 @@
 package com.pharmacy.pharmacymanagementsystem.doa;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.relational.core.sql.In;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -40,6 +42,32 @@ public class CustomerRepo {
 
         t.update(sql, i);
 
+    }
+
+    public int getByEmail(String emailID) {
+        try {
+            System.out.println(emailID);
+            return t.queryForObject("SELECT id FROM customers WHERE customer_email = ?", Integer.class, emailID);
+        } catch (EmptyResultDataAccessException ex) {
+            // Handle the case where no records were found
+            return -1; // Or any appropriate default value or error handling
+        }
+    }
+
+    public Customer getDetails(String emailID){
+        return t.queryForObject("SELECT * FROM customers WHERE customer_email=?",new BeanPropertyRowMapper<Customer>(Customer.class),emailID);
+    }
+
+    public String findEmail(int custId){
+        return t.queryForObject("Select customer_email from customers WHERE id=?",String.class,custId);
+    }
+
+    public int findid(String emailID){
+        return t.queryForObject("Select id from customers WHERE customer_email=?",Integer.class,emailID);
+    }
+
+    public String findAddress(int custId){
+        return t.queryForObject("Select address from customers WHERE id=?",String.class,custId);
     }
 
 }
