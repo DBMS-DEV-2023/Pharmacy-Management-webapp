@@ -13,7 +13,7 @@ import com.pharmacy.pharmacymanagementsystem.doa.PrescMedRepo;
 import com.pharmacy.pharmacymanagementsystem.doa.PrescriptionRepository;
 import com.pharmacy.pharmacymanagementsystem.doa.CategoryRepo;
 import com.pharmacy.pharmacymanagementsystem.doa.CustomerRepo;
-import com.pharmacy.pharmacymanagementsystem.models.medicationStock;
+import com.pharmacy.pharmacymanagementsystem.models.MedicationStock;
 import com.pharmacy.pharmacymanagementsystem.models.prescribed_medicines;
 import com.pharmacy.pharmacymanagementsystem.service.MedicineService;
 import com.pharmacy.pharmacymanagementsystem.models.IncreaseMedicationStock;
@@ -52,7 +52,7 @@ public class MedicineController {
         List<prescribed_medicines> prescription = prescribed_medicinesRepo.findByPrescriptionId(prescId);
         int custId=prescRepo.findCustId(prescId);
         String custEmail=custRepo.findEmail(custId);
-        List<medicationStock> medicationStock = medicationStockRepo.findAll();
+        List<MedicationStock> medicationStock = medicationStockRepo.findAll();
         List<categories> categories = categoryRepo.findAll();
         prescribed_medicines prescribed_medicines = new prescribed_medicines();
         model.addAttribute("custEmail", custEmail);

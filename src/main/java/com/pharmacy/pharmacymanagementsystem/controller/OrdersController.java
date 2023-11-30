@@ -17,7 +17,8 @@ import com.pharmacy.pharmacymanagementsystem.doa.MedRepo;
 import com.pharmacy.pharmacymanagementsystem.doa.OrderRepo;
 import com.pharmacy.pharmacymanagementsystem.doa.PrescMedRepo;
 import com.pharmacy.pharmacymanagementsystem.doa.PrescriptionRepository;
-import com.pharmacy.pharmacymanagementsystem.models.medicationStock;
+import com.pharmacy.pharmacymanagementsystem.models.MedicationStock;
+
 import com.pharmacy.pharmacymanagementsystem.models.orders;
 import com.pharmacy.pharmacymanagementsystem.models.prescribed_medicines;
 import com.pharmacy.pharmacymanagementsystem.service.AdminService;
@@ -51,7 +52,7 @@ public class OrdersController{
         custId=prescRepo.findCustId(prescriptionId);
         String custAdress=custRepo.findAddress(custId);
         List<prescribed_medicines> presc_med= prescMedRepo.findByPrescriptionId(prescriptionId);
-        List<medicationStock> medicationStock = medicationStockRepo.findAll();
+        List<MedicationStock> medicationStock = medicationStockRepo.findAll();
         int totalAmount = 0;
         for (prescribed_medicines medicine : presc_med) {
             totalAmount += medicationStockRepo.findPriceById(medicine.getMedication_id()) * medicine.getQuantity();
@@ -71,9 +72,9 @@ public class OrdersController{
             Date parsedDate = dateFormat.parse(orderDate);
             
             List<prescribed_medicines> presc_med= prescMedRepo.findByPrescriptionId(prescriptionId);
-            List<medicationStock> medicationStock = medicationStockRepo.findAll();
+            List<MedicationStock> medicationStock = medicationStockRepo.findAll();
             for (prescribed_medicines medicine : presc_med) {
-                for (medicationStock medStock : medicationStock) {
+                for (MedicationStock medStock : medicationStock) {
                     if (medStock.getId() == medicine.getMedication_id()) {
                         medStock.setStock_quantity(medStock.getStock_quantity() - medicine.getQuantity());
                         medicationStockRepo.updateMedicationStock(medStock);

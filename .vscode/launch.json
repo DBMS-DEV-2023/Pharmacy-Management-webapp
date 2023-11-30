@@ -15,8 +15,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/gargi/Downloads",
-      "program": "c:/Users/gargi/Downloads/build/Debug/outDebug",
+      "cwd": "c:/Users/gargi/OneDrive/Desktop/B+Trees",
+      "program": "c:/Users/gargi/OneDrive/Desktop/B+Trees/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

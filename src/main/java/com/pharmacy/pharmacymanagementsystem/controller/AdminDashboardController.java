@@ -18,8 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.pharmacy.pharmacymanagementsystem.models.categories;
 import com.pharmacy.pharmacymanagementsystem.doa.PrescriptionRepository;
 import com.pharmacy.pharmacymanagementsystem.models.IncreaseMedicationStock;
+import com.pharmacy.pharmacymanagementsystem.models.MedicationStock;
 import com.pharmacy.pharmacymanagementsystem.models.Prescriptions;
-import com.pharmacy.pharmacymanagementsystem.models.medicationStock;
+// import com.pharmacy.pharmacymanagementsystem.models.medicationStock;
 import com.pharmacy.pharmacymanagementsystem.service.AdminService;
 import com.pharmacy.pharmacymanagementsystem.service.MessageService;
 
@@ -95,13 +96,13 @@ public class AdminDashboardController extends Helper {
 
         categories category=adminService.getCategoryById(catId);
         
-        model.addAttribute("medicine", new medicationStock());
+        model.addAttribute("medicine", new MedicationStock());
         model.addAttribute("category", category);
         return "addmedicine";
     }
 
     @PostMapping("{catId}/addmedicine")
-    public String PostaddMedicationStock(@PathVariable("catId") int catId,@ModelAttribute medicationStock medicine, Model model, HttpSession session, RedirectAttributes attributes){
+    public String PostaddMedicationStock(@PathVariable("catId") int catId,@ModelAttribute MedicationStock medicine, Model model, HttpSession session, RedirectAttributes attributes){
         if (!isAuthenticated(session)) {
             return "redirect:/";
         }
@@ -128,7 +129,7 @@ public class AdminDashboardController extends Helper {
         }
 
         categories category=adminService.getCategoryById(catId);
-        medicationStock medicine=adminService.getMedicineById(id);
+        MedicationStock medicine=adminService.getMedicineById(id);
         model.addAttribute("quantity", new IncreaseMedicationStock());
         model.addAttribute("category", category);
         model.addAttribute("medicine", medicine);
@@ -142,7 +143,7 @@ public class AdminDashboardController extends Helper {
             return "redirect:/";
         }
 
-        medicationStock medicine=adminService.getMedicineById(id);
+        MedicationStock medicine=adminService.getMedicineById(id);
         adminService.restock(medicine, quantity);
         return "redirect:/{catId}_viewmedicine";
     }

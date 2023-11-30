@@ -2,12 +2,12 @@ package com.pharmacy.pharmacymanagementsystem.doa;
 
 import java.util.List;
 
-import com.pharmacy.pharmacymanagementsystem.models.medicationStock;
+import com.pharmacy.pharmacymanagementsystem.models.MedicationStock;
 
 public interface MedRepo {
-    List<medicationStock> findAll();
+    List<MedicationStock> findAll();
     int findPriceById(int medicineId);
     public void deleteMedicationStock(int i);
-    public void updateMedicationStock(medicationStock m);
-    public void insertMedicationStock (medicationStock m);
+    public void updateMedicationStock(MedicationStock m);
+    public void insertMedicationStock (MedicationStock m);
 }

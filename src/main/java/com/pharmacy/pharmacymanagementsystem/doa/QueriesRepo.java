@@ -3,6 +3,8 @@ package com.pharmacy.pharmacymanagementsystem.doa;
 
 import java.util.List;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -35,14 +37,14 @@ public class QueriesRepo {
 
     }
 
-    public void addNewMedicine(medicationStock m, categories c)
+    public void addNewMedicine(MedicationStock m, categories c)
     {
         String x="INSERT INTO medication_stock(name,stock_quantity, price,dosage_strength,category_id) VALUES (?,?,?,?,?)";
 
         t.update(x,m.getName(),m.getStock_quantity(),m.getPrice(),m.getDosage_strength(),c.getCat_id());
 
     }
-    public void restockMedicine(medicationStock m, IncreaseMedicationStock q)
+    public void restockMedicine(MedicationStock m, IncreaseMedicationStock q)
     {
         String sql="UPDATE medication_stock SET stock_quantity=?+? WHERE id=?";
 
@@ -52,12 +54,12 @@ public class QueriesRepo {
 
 
 
-     public List<medicationStock> getMedicinesByCategoryId(int i) {
+     public List<MedicationStock> getMedicinesByCategoryId(int i) {
         try {
 
             String x = "SELECT * FROM medication_stock  WHERE category_id=?";
 
-            return t.query(x, new BeanPropertyRowMapper<>(medicationStock.class),i);
+            return t.query(x, new BeanPropertyRowMapper<>(MedicationStock.class),i);
 
         }
 
@@ -104,13 +106,13 @@ public class QueriesRepo {
 
     }
 
-    public medicationStock getMedicineById(int v) {
+    public MedicationStock getMedicineById(int v) {
 
         try {
 
             String x = "SELECT * FROM medication_stock WHERE id = ?";
 
-            return t.queryForObject(x, new BeanPropertyRowMapper<>(medicationStock.class), new Object[] { v });
+            return t.queryForObject(x, new BeanPropertyRowMapper<>(MedicationStock.class), new Object[] { v });
 
         }
 

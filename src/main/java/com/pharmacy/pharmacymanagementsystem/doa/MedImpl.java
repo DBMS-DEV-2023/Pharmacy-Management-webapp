@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.pharmacy.pharmacymanagementsystem.models.medicationStock;
+import com.pharmacy.pharmacymanagementsystem.models.MedicationStock;
 
 @Repository
 public class MedImpl implements MedRepo {
@@ -16,8 +16,8 @@ public class MedImpl implements MedRepo {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<medicationStock> findAll() {
-        return jdbcTemplate.query("SELECT * FROM medication_stock", new BeanPropertyRowMapper<>(medicationStock.class));
+    public List<MedicationStock> findAll() {
+        return jdbcTemplate.query("SELECT * FROM medication_stock", new BeanPropertyRowMapper<>(MedicationStock.class));
     }
 
     @Override
@@ -26,7 +26,7 @@ public class MedImpl implements MedRepo {
     }
 
     @Override
-    public void insertMedicationStock (medicationStock m)
+    public void insertMedicationStock (MedicationStock m)
     {
         String sql="INSERT INTO medication_stock(name,stock_quantity, price,dosage_strength,category_id) VALUES (?,?,?,?,?)";
 
@@ -34,7 +34,7 @@ public class MedImpl implements MedRepo {
     }
 
     @Override
-    public void updateMedicationStock(medicationStock m)
+    public void updateMedicationStock(MedicationStock m)
     {
         String sql="UPDATE medication_stock SET name=?,stock_quantity = ?, price = ?, dosage_strength = ?, category_id =? WHERE id = ?";
 

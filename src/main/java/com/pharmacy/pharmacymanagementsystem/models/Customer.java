@@ -2,10 +2,13 @@ package com.pharmacy.pharmacymanagementsystem.models;
 
 import java.sql.Date;
 
+import jakarta.validation.constraints.NotBlank;
+
 
 
 public class Customer {
     
+    @NotBlank
     private int id;
 
     private String customer_email;

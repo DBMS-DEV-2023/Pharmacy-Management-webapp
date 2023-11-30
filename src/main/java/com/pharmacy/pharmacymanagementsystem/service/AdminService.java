@@ -11,7 +11,7 @@ import com.pharmacy.pharmacymanagementsystem.doa.QueriesRepo;
 import com.pharmacy.pharmacymanagementsystem.models.categories;
 import com.pharmacy.pharmacymanagementsystem.models.Customer;
 import com.pharmacy.pharmacymanagementsystem.models.IncreaseMedicationStock;
-import com.pharmacy.pharmacymanagementsystem.models.medicationStock;
+import com.pharmacy.pharmacymanagementsystem.models.MedicationStock;
 import com.pharmacy.pharmacymanagementsystem.models.orders;
 
 @Service
@@ -25,7 +25,7 @@ public class AdminService {
 
     @Autowired
     private QueriesRepo queriesRepo;
-    public void addMedicationStock(medicationStock medicine, categories category)
+    public void addMedicationStock(MedicationStock medicine, categories category)
     {
         queriesRepo.addNewMedicine(medicine,category);
     }
@@ -45,11 +45,11 @@ public class AdminService {
         
         medicationStockRepo.deleteMedicationStock(id);
     }
-    public List<medicationStock> getMedicinesByCategoryId(int i)
+    public List<MedicationStock> getMedicinesByCategoryId(int i)
     {
         return queriesRepo.getMedicinesByCategoryId(i);
     }
-    public medicationStock getMedicineById(int id)
+    public MedicationStock getMedicineById(int id)
     {
         return queriesRepo.getMedicineById(id);
     }
@@ -57,7 +57,7 @@ public class AdminService {
     {
         return queriesRepo.getCategories();
     }
-    public void restock(medicationStock m,IncreaseMedicationStock q)
+    public void restock(MedicationStock m,IncreaseMedicationStock q)
     {
         queriesRepo.restockMedicine(m,q);
     }

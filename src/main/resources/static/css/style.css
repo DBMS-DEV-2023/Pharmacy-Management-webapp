@@ -73,7 +73,7 @@ ul.right {
 }
 #home::before{
     content: "";
-    background: url('../images/anunay-rai-NQ55jrGwuXM-unsplash.jpg') no-repeat center center/cover;
+    background: url('../images/homeImage.jpg') no-repeat center center/cover;
     position: absolute;
     height: 80%;
     width: 100%;
